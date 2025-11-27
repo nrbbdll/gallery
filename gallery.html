@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Characters | Gallery</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <style>
+    body {
+      background: #000000;
+      color: #ffffff;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      cursor: auto;
+    }
+
+
+    .header-nav {
+      background: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .header-section {
+      background: transparent;
+      border-bottom: none;
+      padding: 3rem 0 2rem 0;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-title {
+      font-family: 'Afacad', 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: #FFB6C1;
+      text-shadow: 0 6px 30px rgba(255, 182, 193, 0.12);
+    }
+
+    .gallery-subtitle {
+      color: rgba(255, 255, 255, 0.72);
+      font-weight: 300;
+    }
+
+    .album-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.3s ease, background 0.3s ease;
+      position: relative;
+      height: 400px;
+      cursor: pointer;
+      perspective: 1000px;
+    }
+
+    .album-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .album-card:hover .album-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .album-card-front,
+    .album-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .album-card-front {
+      background: rgba(255, 255, 255, 0.01);
+    }
+
+    .album-card-back {
+      background: rgba(255, 182, 193, 0.08);
+      transform: rotateY(180deg);
+      border: 1px solid rgba(255, 182, 193, 0.2);
+    }
+
+    .album-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .character-quote {
+      font-style: italic;
+      color: #FFB6C1;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* overlay hidden - only image shows */
+    .card-overlay {
+      display: none;
+    }
+
+    .badge-genre {
+      background: rgba(255, 182, 193, 0.12);
+      color: #FFB6C1;
+      border: 1px solid rgba(255, 182, 193, 0.2);
+    }
+
+    .back-link {
+      color: #FFB6C1;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #FFC0CB;
+      transform: translateX(-5px);
+    }
+
+    .header-icon {
+      width: 56px;
+      height: auto;
+      filter: drop-shadow(0 8px 24px rgba(255, 182, 193, 0.08));
+      display: block;
+      margin: 0 auto 1rem auto;
+    }
+
+    .container {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    .container:hover {
+      background: transparent;
+      border: none;
+    }
+
+    #container-row .container {
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+
+    #container-row .container:hover {
+      background: transparent;
+      border: none;
+    }
+
+    .header-nav .container {
+      background: none;
+      border: none;
+      padding: 0;
+      backdrop-filter: none;
+    }
+  </style>
+</head>
+
+<body class="bg-black">
+  <div class="header-nav">
+    <div class="container">
+      <a href="index.html" class="back-link d-inline-flex align-items-center" style="font-size: 0.95rem;">↩ Back</a>
+    </div>
+  </div>
+
+  <div class="container mb-5">
+    <div class="row g-4" id="container-row">
+    </div>
+  </div>
+
+
+  <script>
+    var containerRow = document.getElementById("container-row");
+
+    var characters = [
+      {
+        name: "Bee",
+        bio: "Bee is overall spacey and impulsive. Her father made her a cyborg due to illness",
+        quote: "Because I'm kinda dumb. There. That's my only secret. Now you know everything about me.",
+        image: "bee.jpg",
+      },
+      {
+        name: "PuppyCat",
+        bio: "PuppyCat has a strong tsundere personality.",
+        quote: "That's not really a secret. You're only dumb sometimes about some things.",
+        image: "puppycat.jpg",
+      },
+      {
+        name: "Violet",
+        bio: "Violet is an alien who's been friends with the Space Outlaw since their school days.",
+        quote: "Don't ever stop making us these cute inventions to use to **** on people!",
+        image: "violet.jpg",
+      },
+      {
+        name: "Space Outlaw",
+        bio: "He is a very handsome, humanoid-like alien with greyish-purple skin.",
+        quote: "Violet, get out of my beautiful face!	.",
+        image: "space-outlaw.jpg",
+      },
+      {
+        name: "Deckard Wizard",
+        bio: " He is very caring and protective, especially towards Bee.",
+        quote: "That's ok! We can work with this.",
+        image: "deckard.jpg",
+      },
+      {
+        name: "Crispin Wizard",
+        bio: "Deckard's brother. Crispin is generally grumpy and antisocial, even towards people he cares about. ",
+        quote: "No one is allowed to look at me when I'm making art!	",
+        image: "crispin.jpg",
+      },
+      {
+        name: "Toast",
+        bio: " She is the former co-wrestler of Cas Wizard and is the live-in girlfriend of Merlin Wizard.",
+        quote: "The only thing I ever wanted was to be the strongest!",
+        image: "toast.jpg",
+      },
+      {
+        name: "Howell Wizard",
+        bio: "Another member of the wizard family. Handsome and a bit flamboyant.",
+        quote: "Do I look like I belong in the middle?",
+        image: "howell.jpg",
+        wiki: "https://beeandpuppycat.fandom.com/wiki/Howell_Wizard"
+      }
+    ];
+
+    for (var i = 0; i < characters.length; i++) {
+      var character = characters[i];
+      containerRow.innerHTML += `
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="album-card mt-3 mb-4 shadow">
+            <div class="album-card-inner">
+              <div class="album-card-front">
+                <img src="`+ character.image + `" class="album-image" alt="` + character.name + `">
+              </div>
+              <div class="album-card-back">
+                <h5 class="fw-bold mb-2" style="color: #FFB6C1;">` + character.name + `</h5>
+                <p class="character-quote mb-2">` + character.quote + `</p>
+                <p class="small" style="color: rgba(255, 255, 255, 0.7); font-size: 0.85rem;">` + character.bio + `</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

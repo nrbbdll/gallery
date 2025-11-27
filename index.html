@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <style>
+    @keyframes typewriter {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-right-color: transparent;
+      }
+    }
+
+    body {
+      background: #000000;
+      min-height: 100vh;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      cursor: auto;
+    }
+
+    .welcome-container {
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      transition: border-color 0.3s ease, background 0.3s ease;
+      cursor: pointer;
+      min-height: 400px;
+    }
+
+    .welcome-container:hover {
+      border-color: rgb(255, 182, 193);
+      background: rgba(255, 182, 193, 0.25);
+    }
+
+    .welcome-title {
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      font-weight: 400;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      text-shadow: none;
+      letter-spacing: 0;
+    }
+
+    .typing-title {
+      overflow: hidden;
+      border-right: 3px solid #FFB6C1;
+      white-space: nowrap;
+      font-family: 'Roboto Mono', monospace;
+      display: inline-block;
+      animation: blink 0.75s step-end infinite;
+      font-size: 3rem;
+      color: #FFB6C1;
+      text-shadow: 0 8px 40px rgba(255, 182, 193, 0.1);
+      letter-spacing: -1px;
+      margin-bottom: 3rem;
+    }
+
+
+    .welcome-intro {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .btn-gallery {
+      display: none;
+    }
+
+    .floating-icon {
+      opacity: 0.9;
+    }
+
+    .header-icon {
+      width: 56px;
+      height: auto;
+      filter: drop-shadow(0 8px 24px rgba(255, 182, 193, 0.08));
+    }
+
+    .attribution {
+      position: fixed;
+      right: 12px;
+      bottom: 8px;
+      font-size: 0.62rem;
+      color: rgba(255, 255, 255, 0.28);
+      z-index: 10;
+      transition: color 0.18s ease, opacity 0.18s ease;
+      pointer-events: auto;
+    }
+
+    .attribution a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dashed transparent;
+    }
+
+    .attribution:hover {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  </style>
+</head>
+
+<body class="d-flex flex-column align-items-center justify-content-center min-vh-100 px-4">
+
+  <!-- Logo -->
+  <img src="https://upload.wikimedia.org/wikipedia/en/5/5c/Bee_and_PuppyCat_logo.png" alt="Bee and PuppyCat" style="max-width: 300px; height: auto; margin-bottom: 2rem; filter: drop-shadow(0 8px 24px rgba(255, 182, 193, 0.08));">
+
+  <!-- Typing text -->
+  <h1 class="typing-title" data-text="nei's favorite cartoon show"></h1>
+
+  <!-- Clickable container -->
+  <div class="welcome-container text-center px-5 py-5 d-flex align-items-center justify-content-center flex-column"
+    style="max-width: 600px; border-radius: 18px; width: 100%; min-height: 200px;"
+    onclick="window.location.href='gallery.html';">
+    <p class="welcome-intro fs-5 mb-3 lh-lg">
+      welcome!<br>bee and puppycat is my comfort show. click here to be redirected to the gallery of the characters of my favorite cartoon show.
+    </p>
+    <span style="color: #ff8fa0; font-size: 1.5rem;">૮₍´˶• . • ⑅ ₎ა</span>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const el = document.querySelector('.typing-title');
+      if (!el) return;
+      const text = el.getAttribute('data-text') || el.textContent.trim();
+      el.textContent = '';
+      const speed = 200; // ms per character
+      let i = 0;
+      function type() {
+        if (i <= text.length) {
+          el.textContent = text.slice(0, i);
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    });
+  </script>
+
+</body>
+
+</html>
