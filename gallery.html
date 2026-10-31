@@ -1,269 +1,52 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Characters | Gallery</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-    rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#faf8f6">
+  <meta name="description" content="Browse a small personal collection of Bee and PuppyCat character portraits."><link rel="icon" type="image/png" href="bee-puppycat-logo.png"><title>Characters & Gallery | Bee and PuppyCat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Afacad:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      background: #000000;
-      color: #ffffff;
-      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      cursor: auto;
-    }
-
-
-    .header-nav {
-      background: transparent;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 1.5rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(10px);
-    }
-
-    .header-section {
-      background: transparent;
-      border-bottom: none;
-      padding: 3rem 0 2rem 0;
-      margin-bottom: 3rem;
-    }
-
-    .gallery-title {
-      font-family: 'Afacad', 'Playfair Display', serif;
-      font-weight: 700;
-      letter-spacing: -1px;
-      color: #FFB6C1;
-      text-shadow: 0 6px 30px rgba(255, 182, 193, 0.12);
-    }
-
-    .gallery-subtitle {
-      color: rgba(255, 255, 255, 0.72);
-      font-weight: 300;
-    }
-
-    .album-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 2px solid rgba(241, 139, 204, 0.976);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: border-color 0.3s ease, background 0.3s ease;
-      position: relative;
-      height: 400px;
-      cursor: pointer;
-      perspective: 1000px;
-    }
-
-    .album-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-    }
-
-    .album-card:hover .album-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .album-card-front,
-    .album-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 1.5rem;
-      text-align: center;
-    }
-
-    .album-card-front {
-      background: rgba(255, 255, 255, 0.01);
-    }
-
-    .album-card-back {
-      background: rgba(255, 182, 193, 0.08);
-      transform: rotateY(180deg);
-      border: 1px solid rgba(255, 182, 193, 0.2);
-    }
-
-    .album-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-
-    .character-quote {
-      font-style: italic;
-      color: #FFB6C1;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    /* overlay hidden - only image shows */
-    .card-overlay {
-      display: none;
-    }
-
-    .back-link {
-      color: #FFB6C1;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .back-link:hover {
-      color: #FFC0CB;
-      transform: translateX(-5px);
-    }
-
-    .header-icon {
-      width: 56px;
-      height: auto;
-      filter: drop-shadow(0 8px 24px rgba(255, 182, 193, 0.08));
-      display: block;
-      margin: 0 auto 1rem auto;
-    }
-
-    .container {
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      padding: 0;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-    }
-
-    .container:hover {
-      background: transparent;
-      border: none;
-    }
-
-    #container-row .container {
-      background: transparent;
-      border: none;
-      padding: 0;
-    }
-
-    #container-row .container:hover {
-      background: transparent;
-      border: none;
-    }
-
-    .header-nav .container {
-      background: none;
-      border: none;
-      padding: 0;
-      backdrop-filter: none;
-    }
+    :root{color-scheme:light;--bg:#faf8f6;--surface:#fdfbf9;--section:#eee6e5;--text:#302c2c;--muted:#686263;--accent:#985b65;--hover:#75414b;--soft:#efdcde;--border:#ded3d2;--dot:rgba(152,91,101,.12);--mono:'Roboto Mono',monospace;--sans:'Afacad',system-ui,sans-serif}
+    [data-theme="dark"]{color-scheme:dark;--bg:#211e1e;--surface:#292425;--section:#34292c;--text:#f5eeee;--muted:#c1b5b7;--accent:#dfa6b1;--hover:#f0c0c8;--soft:#4b3439;--border:#59474b;--dot:rgba(223,166,177,.12)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:5.5rem}body{margin:0;background-color:var(--bg);background-image:radial-gradient(var(--dot) .75px,transparent .75px);background-size:18px 18px;color:var(--text);font:1.08rem/1.5 var(--sans)}a,button,input{font:inherit}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}.wrap{width:min(1080px,calc(100% - 40px));margin-inline:auto}.mono,.eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;font-size:.72rem}.topbar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}.nav{height:86px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:block;width:110px;height:82px;flex:none}.brand img{display:block;width:100%;height:100%;object-fit:contain;background:transparent;border-radius:0}.navlinks{display:flex;align-items:center;gap:24px}.navlinks a,.portfolio{font:500 .72rem var(--mono);text-decoration:none;color:var(--muted)}.navlinks a:hover,.navlinks a[aria-current="page"],.portfolio:hover{color:var(--accent)}.navlinks a[aria-current="page"]{position:relative}.navlinks a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;background:var(--accent)}.navtools{display:flex;gap:12px;align-items:center}.iconbtn,.menu-btn{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:999px;padding:8px 12px;cursor:pointer;font:500 .72rem var(--mono)}.menu-btn{display:none}.page-head{padding:62px 0 30px}.eyebrow{color:var(--accent)}h1{font-size:clamp(2.5rem,5vw,4.2rem);line-height:1;margin:12px 0;letter-spacing:-.04em}.page-head p{max-width:650px;color:var(--muted);font-size:1.18rem}.controls{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:18px 0;border-block:1px solid var(--border);margin:8px 0 26px}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid var(--border);border-radius:99px;background:var(--surface);color:var(--muted);padding:7px 13px;cursor:pointer;font:500 .68rem var(--mono)}.filter[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}.search{width:min(290px,100%);border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:4px;padding:10px 12px}
+    .gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:410px;gap:18px;padding-bottom:44px}.card{min-width:0;height:100%;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);position:relative;transition:transform .18s,border-color .18s}.card:hover{transform:translateY(-3px);border-color:var(--accent)}.image-button{border:0;background:var(--section);padding:0;width:100%;aspect-ratio:1;max-height:270px;flex:none;overflow:hidden;display:flex;align-items:center;justify-content:center;cursor:zoom-in}.card img{display:block;width:100%;height:100%;padding:10px;object-fit:contain;object-position:center;background:var(--section);color:var(--muted)}.card-info{padding:12px 14px 14px;min-height:0;overflow:hidden}.card-title{font-size:1.15rem;font-weight:600;margin:0 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.card-bio{font-size:.93rem;color:var(--muted);margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.favorite{position:absolute;top:10px;right:10px;border:1px solid var(--border);background:var(--surface);width:38px;height:38px;border-radius:50%;color:var(--accent);cursor:pointer;font-size:1.2rem}.favorite[aria-pressed="true"]{background:var(--accent);color:#fff}.empty{padding:45px 20px;text-align:center;color:var(--muted);border:1px dashed var(--border);grid-column:1/-1}
+    .footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font-size:.9rem}.footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.footer a{color:var(--accent)}dialog{border:1px solid var(--border);background:var(--bg);color:var(--text);padding:0;max-width:min(940px,calc(100% - 28px));max-height:calc(100% - 28px);height:min(680px,calc(100vh - 48px));width:900px;box-shadow:0 18px 80px #0006}dialog::backdrop{background:#171213d9;backdrop-filter:blur(4px)}.lightbox{display:grid;grid-template-columns:minmax(0,1fr) 250px;height:100%;min-height:0}.lightbox-visual{position:relative;background:#191617;display:flex;justify-content:center;align-items:center;min-height:0;height:100%;overflow:hidden}.lightbox-visual img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}.lb-close,.lb-arrow{position:absolute;border:1px solid #ffffff55;background:#211e1ecc;color:white;border-radius:50%;width:42px;height:42px;cursor:pointer}.lb-close{top:12px;right:12px}.lb-arrow{top:50%;transform:translateY(-50%)}.lb-prev{left:12px}.lb-next{right:12px}.lb-meta{padding:26px 20px}.lb-meta h2{font-size:1.5rem;margin:0 0 10px}.lb-meta p{color:var(--muted)}.no-scroll{overflow:hidden}body.no-scroll{padding-right:var(--scrollbar-gap,0px)}
+    @media(max-width:850px){.gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:650px){.nav{height:62px}.brand{width:80px;height:60px}.menu-btn{display:block}.navlinks{display:none;position:absolute;left:0;right:0;top:61px;background:var(--bg);border-bottom:1px solid var(--border);padding:18px 20px;flex-direction:column;align-items:flex-start;gap:18px}.navlinks.open{display:flex}.portfolio{display:none}.gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:400px;gap:12px}.image-button{max-height:none}.controls{align-items:flex-start}.search{width:100%}.lightbox{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) auto}.lightbox-visual{min-height:0}.lb-meta{padding:16px 20px}}
+    @media(max-width:380px){.gallery{grid-template-columns:1fr}.image-button{max-height:250px}.wrap{width:calc(100% - 28px)}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
   </style>
 </head>
-
-<body class="bg-black">
-  <div class="header-nav">
-    <div class="container">
-      <a href="index.html" class="back-link d-inline-flex align-items-center" style="font-size: 0.95rem;">↩ Back</a>
-    </div>
-  </div>
-
-  <div class="container mb-5">
-    <div class="row g-4" id="container-row">
-    </div>
-  </div>
-
-
+<body>
+  <header class="topbar"><nav class="nav wrap" aria-label="Main navigation"><a class="brand" href="index.html" aria-label="Bee and PuppyCat Little Gallery home"><img src="bee-puppycat-logo.png" alt="Bee and PuppyCat"></a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="navlinks">Menu</button><div class="navlinks" id="navlinks"><a href="index.html" data-nav="home">Home</a><a href="gallery.html" data-nav="gallery">Characters Gallery</a><a href="episodes.html" data-nav="episodes">Episodes</a><a href="index.html#quotes" data-nav="quotes">Quotes</a></div><div class="navtools"><button class="iconbtn" id="theme-toggle" type="button" aria-label="Switch to dark theme">☾</button></div></nav></header>
+  <main class="wrap"><header class="page-head"><span class="eyebrow">Character collection / 01—08</span><h1>The faces we love.</h1><p>Portraits and little notes from the characters already in this collection. Search for someone, save a favorite, or open a portrait to take a closer look.</p><a class="button" id="surprise" href="#gallery" style="display:inline-block;background:var(--accent);color:white;padding:9px 14px;text-decoration:none;font:500 .7rem var(--mono);border-radius:4px">Solo Display ↗</a></header>
+    <section id="gallery" aria-label="Character gallery"><div class="controls"><div class="filters" role="group" aria-label="Filter characters"><button class="filter" type="button" data-filter="all" aria-pressed="true">All</button><button class="filter" type="button" data-filter="favorites" aria-pressed="false">Favorites <span id="favorite-count"></span></button></div><label><span class="eyebrow" style="display:none">Search gallery</span><input id="search" class="search" type="search" placeholder="Search characters…" aria-label="Search characters"></label></div><div class="gallery" id="cards" aria-live="polite"></div></section>
+  </main>
+  <footer class="footer"><div class="wrap"><span>Bee & PuppyCat Gallery · a personal fan project.</span><span>Unofficial and not affiliated with the creators or rights holders. <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">Back to top ↑</a> · <a href="https://nrbbdll.github.io/">Portfolio</a></span></div></footer>
+  <dialog id="lightbox" aria-label="Image viewer"><div class="lightbox"><div class="lightbox-visual"><img id="lightbox-image" alt=""><button class="lb-close" type="button" aria-label="Close image viewer">×</button><button class="lb-arrow lb-prev" type="button" aria-label="Previous image">‹</button><button class="lb-arrow lb-next" type="button" aria-label="Next image">›</button></div><div class="lb-meta"><span class="eyebrow">Character portrait</span><h2 id="lightbox-title"></h2><p id="lightbox-caption"></p><button id="lightbox-favorite" class="filter" type="button">♡ Save favorite</button></div></div></dialog>
   <script>
-    var containerRow = document.getElementById("container-row");
-
-    var characters = [
-      {
-        name: "Bee",
-        bio: "Bee is overall spacey and impulsive. Her father made her a cyborg due to illness",
-        quote: '"Because I am kinda dumb. There. That is my only secret. Now you know everything about me."',
-        image: "bee.jpg",
-      },
-      {
-        name: "PuppyCat",
-        bio: "PuppyCat has a strong tsundere personality.",
-        quote: '"That is not really a secret. You are only dumb sometimes about some things."',
-        image: "puppycat.jpg",
-      },
-      {
-        name: "Violet",
-        bio: "Violet is an alien who's been friends with the Space Outlaw since their school days.",
-        quote: '"Do not ever stop making us these cute inventions to use to **** on people!"',
-        image: "violet.jpg",
-      },
-      {
-        name: "Space Outlaw",
-        bio: "He is a very handsome, humanoid-like alien with greyish-purple skin.",
-        quote: '"Violet, get out of my beautiful face!"',
-        image: "space-outlaw.jpg",
-      },
-      {
-        name: "Deckard Wizard",
-        bio: "He is very caring and protective, especially towards Bee.",
-        quote: '"That is ok! We can work with this."',
-        image: "deckard.jpg",
-      },
-      {
-        name: "Crispin Wizard",
-        bio: "Deckard's brother. Crispin is generally grumpy and antisocial, even towards people he cares about.",
-        quote: '"No one is allowed to look at me when I am making art!"',
-        image: "crispin.jpg",
-      },
-      {
-        name: "Toast",
-        bio: "She is the former co-wrestler of Cas Wizard and is the live-in girlfriend of Merlin Wizard.",
-        quote: '"The only thing I ever wanted was to be the strongest!"',
-        image: "toast.jpg",
-      },
-      {
-        name: "Howell Wizard",
-        bio: "Another member of the wizard family. Handsome and a bit flamboyant.",
-        quote: '"Do I look like I belong in the middle?"',
-        image: "howell.jpg",
-      }
+    const characters=[
+      {name:'Bee',bio:'Bee is overall spacey and impulsive. Her father made her a cyborg due to illness.',image:'bee.jpg',thumbnail:'thumbnails/bee.jpg',quote:'“Because I am kinda dumb. There. That is my only secret. Now you know everything about me.”'},
+      {name:'PuppyCat',bio:'PuppyCat has a strong tsundere personality.',image:'puppycat.jpg',thumbnail:'thumbnails/puppycat.jpg',quote:'“That is not really a secret. You are only dumb sometimes about some things.”'},
+      {name:'Violet',bio:'Violet is an alien who has been friends with the Space Outlaw since their school days.',image:'violet.jpg',thumbnail:'thumbnails/violet.jpg',quote:'“Do not ever stop making us these cute inventions to use to **** on people!”'},
+      {name:'Space Outlaw',bio:'A humanoid-like alien with greyish-purple skin.',image:'space-outlaw.jpg',thumbnail:'thumbnails/space-outlaw.jpg',quote:'“Violet, get out of my beautiful face!”'},
+      {name:'Deckard Wizard',bio:'He is very caring and protective, especially towards Bee.',image:'deckard.jpg',thumbnail:'thumbnails/deckard.jpg',quote:'“That is ok! We can work with this.”'},
+      {name:'Crispin Wizard',bio:'Deckard’s brother. Crispin is generally grumpy and antisocial, even towards people he cares about.',image:'crispin.jpg',thumbnail:'thumbnails/crispin.jpg',quote:'“No one is allowed to look at me when I am making art!”'},
+      {name:'Toast',bio:'She is the former co-wrestler of Cas Wizard and is the live-in girlfriend of Merlin Wizard.',image:'toast.jpg',thumbnail:'thumbnails/toast.jpg',quote:'“The only thing I ever wanted was to be the strongest!”'},
+      {name:'Howell Wizard',bio:'Another member of the wizard family. Handsome and a bit flamboyant.',image:'howell.jpg',thumbnail:'thumbnails/howell.jpg',quote:'“Do I look like I belong in the middle?”'}
     ];
-
-    for (var i = 0; i < characters.length; i++) {
-      var character = characters[i];
-      containerRow.innerHTML += `
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="album-card mt-3 mb-4 shadow">
-            <div class="album-card-inner">
-              <div class="album-card-front">
-                <img src="`+ character.image + `" class="album-image" alt="` + character.name + `">
-              </div>
-              <div class="album-card-back">
-                <h5 class="fw-bold mb-2" style="color: #FFB6C1;">` + character.name + `</h5>
-                <p class="character-quote mb-2">` + character.quote + `</p>
-                <p class="small" style="color: rgba(255, 255, 255, 0.7); font-size: 0.85rem;">` + character.bio + `</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-    }
+    const cards=document.getElementById('cards'),search=document.getElementById('search'),buttons=[...document.querySelectorAll('.filter[data-filter]')];let activeFilter='all',visible=[],activeIndex=0;
+    let favorites=new Set();try{favorites=new Set(JSON.parse(localStorage.getItem('gallery-favorites')||'[]'))}catch{favorites=new Set()}
+    const escaped=s=>{const el=document.createElement('span');el.textContent=s;return el.innerHTML};
+    function update(){const term=search.value.trim().toLowerCase();visible=characters.map((item,index)=>({...item,index})).filter(item=>(activeFilter!=='favorites'||favorites.has(item.image))&&(!term||item.name.toLowerCase().includes(term)));cards.replaceChildren();document.getElementById('favorite-count').textContent=favorites.size?`(${favorites.size})`:'';if(!visible.length){const empty=document.createElement('p');empty.className='empty';empty.textContent=activeFilter==='favorites'?'No favorites yet. Tap a heart on any portrait to save one.':'No characters match that name. Try another search.';cards.append(empty);return}const fragment=document.createDocumentFragment();visible.forEach((item,index)=>{const card=document.createElement('article');card.className='card';card.innerHTML=`<button class="image-button" type="button" data-open="${index}" aria-label="View ${escaped(item.name)} portrait"><img src="${escaped(item.thumbnail)}" alt="${escaped(item.name)}, a character from Bee and PuppyCat" width="640" height="640" loading="lazy" decoding="async"></button><button class="favorite" type="button" data-favorite="${escaped(item.image)}" aria-label="${favorites.has(item.image)?'Remove':'Add'} ${escaped(item.name)} ${favorites.has(item.image)?'from':'to'} favorites" aria-pressed="${favorites.has(item.image)}">${favorites.has(item.image)?'♥':'♡'}</button><div class="card-info"><h2 class="card-title">${escaped(item.name)}</h2><p class="card-bio">${escaped(item.bio)}</p></div>`;const img=card.querySelector('img');img.addEventListener('error',()=>{img.removeAttribute('src');img.alt=`Image unavailable: ${item.name}`;img.style.objectFit='contain';img.style.padding='2rem';img.parentElement.style.cursor='default';img.parentElement.disabled=true},{once:true});fragment.append(card)});cards.append(fragment)}
+    function storeFavorites(){localStorage.setItem('gallery-favorites',JSON.stringify([...favorites]));update()}
+    buttons.forEach(btn=>btn.addEventListener('click',()=>{activeFilter=btn.dataset.filter;buttons.forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));update()}));search.addEventListener('input',update);cards.addEventListener('click',e=>{const fav=e.target.closest('[data-favorite]');if(fav){const key=fav.dataset.favorite;favorites.has(key)?favorites.delete(key):favorites.add(key);storeFavorites();return}const open=e.target.closest('[data-open]');if(open)openLightbox(Number(open.dataset.open))});update();
+    const dialog=document.getElementById('lightbox'),lbImage=document.getElementById('lightbox-image');function openLightbox(index){activeIndex=index;showLightbox();document.body.style.setProperty('--scrollbar-gap',`${window.innerWidth-document.documentElement.clientWidth}px`);document.body.classList.add('no-scroll');dialog.showModal();dialog.querySelector('.lb-close').focus()}
+    function showLightbox(){const item=visible[activeIndex];if(!item)return;lbImage.src=item.thumbnail;lbImage.alt=`${item.name}, a character from Bee and PuppyCat`;document.getElementById('lightbox-title').textContent=item.name;document.getElementById('lightbox-caption').textContent=item.bio;const fav=document.getElementById('lightbox-favorite');fav.textContent=favorites.has(item.image)?'♥ Saved to favorites':'♡ Save favorite';fav.setAttribute('aria-pressed',String(favorites.has(item.image)));const arrows=dialog.querySelectorAll('.lb-arrow');arrows.forEach(b=>b.hidden=visible.length<2)}
+    function step(direction){if(visible.length<2)return;activeIndex=(activeIndex+direction+visible.length)%visible.length;showLightbox()}
+    dialog.querySelector('.lb-close').addEventListener('click',()=>dialog.close());dialog.querySelector('.lb-prev').addEventListener('click',()=>step(-1));dialog.querySelector('.lb-next').addEventListener('click',()=>step(1));dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});dialog.addEventListener('close',()=>document.body.classList.remove('no-scroll'));document.getElementById('lightbox-favorite').addEventListener('click',()=>{const item=visible[activeIndex];if(!item)return;favorites.has(item.image)?favorites.delete(item.image):favorites.add(item.image);storeFavorites();activeIndex=visible.findIndex(x=>x.image===item.image);if(activeIndex<0){dialog.close();return}showLightbox()});document.addEventListener('keydown',e=>{if(!dialog.open)return;if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}if(e.key==='ArrowRight'){e.preventDefault();step(1)}});
+    document.getElementById('surprise').addEventListener('click',async e=>{e.preventDefault();const shuffled=[...characters].sort(()=>Math.random()-.5);let chosen=null;for(const item of shuffled){const ok=await new Promise(resolve=>{const probe=new Image();probe.onload=()=>resolve(true);probe.onerror=()=>resolve(false);probe.src=item.image;if(probe.complete)resolve(probe.naturalWidth>0)});if(ok){chosen=item;break}}if(!chosen)return;search.value='';activeFilter='all';buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter==='all')));update();activeIndex=visible.findIndex(x=>x.image===chosen.image);openLightbox(activeIndex)});
+    const root=document.documentElement,themeButton=document.getElementById('theme-toggle');const savedTheme=localStorage.getItem('gallery-theme');if(savedTheme)root.dataset.theme=savedTheme;function updateTheme(){const dark=root.dataset.theme==='dark';themeButton.textContent=dark?'☀':'☾';themeButton.setAttribute('aria-label',dark?'Switch to light theme':'Switch to dark theme')}updateTheme();themeButton.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';localStorage.setItem('gallery-theme',root.dataset.theme);updateTheme()});
+    document.querySelector(".navlinks [data-nav=gallery]").setAttribute("aria-current","page");
+    const menu=document.getElementById('navlinks'),menuButton=document.querySelector('.menu-btn');menuButton.addEventListener('click',()=>{const open=menu.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open))});menu.addEventListener('click',e=>{if(e.target.closest('a')){menu.classList.remove('open');menuButton.setAttribute('aria-expanded','false')}});
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
-
 </body>
-
 </html>
